@@ -13,8 +13,12 @@ export class App extends Component {
     bad: 0,
   };
 
-  updateClicks = buttonName => {
-    this.setState({ [buttonName]: this.state[buttonName] + 1 });
+  updateClicks = feedbackType => {
+    this.setState(prevState => {
+      return {
+        [feedbackType]: prevState[feedbackType] + 1,
+      };
+    });
   };
 
   countTotalFeedback = ({ good, neutral, bad }) => good + neutral + bad;
